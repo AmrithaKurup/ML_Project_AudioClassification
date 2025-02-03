@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Audio or Spectrogram</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Upload Audio or Spectrogram</h2>
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <label for="audio_file">Upload Audio or Spectrogram:</label>
+            <input type="file" name="file" id="audio_file" accept=".wav, .mp3, .flac, .png, .jpg, .jpeg" required>
+            <br><br>
+            <input type="radio" name="fileType" value="audio" checked> Audio
+            <input type="radio" name="fileType" value="image"> Spectrogram
+            <br><br>
+            <button type="submit">Upload File</button>
+        </form>
+    </div>
+</body>
+</html>

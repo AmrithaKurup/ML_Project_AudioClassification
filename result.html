@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Prediction Result</h2>
+        <p>The predicted genre is: <strong>{{ prediction }}</strong></p>
+
+        <!-- Display Spectrogram Image -->
+        <h3>Spectrogram:</h3>
+        <img src="{{ url_for('display_spectrogram', filename=spectrogram_image) }}"
+             alt="Spectrogram" style="width: 250px; height: auto; border-radius: 10px;">
+
+        <!-- Audio Player -->
+        <h3>Listen to the Audio:</h3>
+        <audio controls>
+            <source src="{{ url_for('get_audio', filename=audio_file) }}" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+
+        {% if famous_songs %}
+            <h3>Famous Songs in {{ prediction }} Genre:</h3>
+            <pre>{{ famous_songs }}</pre>
+        {% endif %}
+
+        {% if download_spectrogram %}
+            <a href="{{ url_for('download_spectrogram', filename=spectrogram_image) }}" download>
+                <button>Download Spectrogram</button>
+            </a>
+        {% endif %}
+
+        {% if download_audio %}
+            <a href="{{ url_for('download_audio', filename=audio_file) }}" download>
+                <button>Download Audio</button>
+            </a>
+        {% endif %}
+
+        <br><br>
+        <a href="/" class="upload-again">Upload Another File</a>
+    </div>
+</body>
+</html>

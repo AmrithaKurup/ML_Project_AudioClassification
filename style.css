@@ -1,0 +1,114 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #121212;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 500px;
+    background: rgba(30, 30, 30, 0.85);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 255, 255, 0.3);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1.05);
+}
+
+h2, h3 {
+    color: #0ff;
+    font-size: 22px; /* Reduced font size */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+p, label, audio, .upload-again {
+    color: #bbb; /* Adjusted color for better visibility */
+    font-size: 14px; /* Reduced font size */
+}
+
+p strong {
+    color: #ff1493;
+    font-size: 20px; /* Reduced font size */
+    font-weight: bold;
+    text-shadow: 0px 0px 10px rgba(255, 20, 147, 0.8);
+    background: rgba(255, 20, 147, 0.2);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+input[type='file'] {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 14px; /* Reduced font size */
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+input[type='file']:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.5);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #ff00ff, #0ff);
+    color: white;
+    font-size: 16px; /* Reduced font size */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #ff1493, #00ffff);
+    transform: scale(1.08);
+    box-shadow: 0px 0px 15px rgba(255, 20, 147, 0.5);
+}
+
+.upload-again {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: #0ff;
+    color: #121212;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px; /* Reduced font size */
+    transition: background 0.3s ease-in-out, color 0.3s;
+}
+
+.upload-again:hover {
+    background: #ff1493;
+    color: white;
+    box-shadow: 0px 0px 10px rgba(255, 20, 147, 0.5);
+}
+
+/* Remove blur effect on hover */
+.container:hover {
+    backdrop-filter: none;
+}
+
+/* Change font color of Audio and Spectrogram options */
+input[type='radio'] + label {
+    color: #0ff;
+    font-size: 14px;
+}
