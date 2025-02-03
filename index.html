@@ -10,11 +10,12 @@
     <div class="container">
         <h2>Upload Audio or Spectrogram</h2>
         <form action="/predict" method="post" enctype="multipart/form-data">
-            <label for="audio_file">Upload Audio or Spectrogram:</label>
             <input type="file" name="file" id="audio_file" accept=".wav, .mp3, .flac, .png, .jpg, .jpeg" required>
             <br><br>
-            <input type="radio" name="fileType" value="audio" checked> Audio
-            <input type="radio" name="fileType" value="image"> Spectrogram
+            <input type="radio" name="fileType" value="audio" checked>
+            <label for="audio" style="color: white;">Audio</label>
+            <input type="radio" name="fileType" value="image">
+            <label for="image" style="color: white;">Spectrogram</label>
             <br><br>
             <button type="submit">Upload File</button>
         </form>
