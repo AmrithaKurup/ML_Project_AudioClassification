@@ -27,19 +27,19 @@ body {
 
 h2, h3 {
     color: #0ff;
-    font-size: 22px; /* Reduced font size */
+    font-size: 22px;
     margin-bottom: 20px;
     text-transform: uppercase;
 }
 
 p, label, audio, .upload-again {
-    color: #bbb; /* Adjusted color for better visibility */
-    font-size: 14px; /* Reduced font size */
+    color: #bbb;
+    font-size: 14px;
 }
 
 p strong {
     color: #ff1493;
-    font-size: 20px; /* Reduced font size */
+    font-size: 20px;
     font-weight: bold;
     text-shadow: 0px 0px 10px rgba(255, 20, 147, 0.8);
     background: rgba(255, 20, 147, 0.2);
@@ -54,7 +54,7 @@ input[type='file'] {
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.1);
     color: #fff;
-    font-size: 14px; /* Reduced font size */
+    font-size: 14px;
     cursor: pointer;
     transition: background 0.3s, box-shadow 0.3s;
 }
@@ -71,7 +71,7 @@ button {
     border-radius: 10px;
     background: linear-gradient(45deg, #ff00ff, #0ff);
     color: white;
-    font-size: 16px; /* Reduced font size */
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     transition: background 0.3s ease-in-out, transform 0.2s;
@@ -85,29 +85,33 @@ button:hover {
 
 .upload-again {
     display: inline-block;
-    margin-top: 20px;
-    padding: 10px 16px;
-    border-radius: 10px;
-    background: #0ff;
+    padding: 12px 24px;
+    background-color: #0ff;
     color: #121212;
+    border-radius: 10px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 14px; /* Reduced font size */
-    transition: background 0.3s ease-in-out, color 0.3s;
+    font-size: 16px;
+    text-align: center;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .upload-again:hover {
-    background: #ff1493;
+    background-color: #ff1493;
     color: white;
-    box-shadow: 0px 0px 10px rgba(255, 20, 147, 0.5);
 }
 
-/* Remove blur effect on hover */
+/* Center the download button */
+.download-container {
+    display: flex;
+    justify-content: center; /* Aligns the button to the center */
+    margin-top: 20px; /* Adds space above the button */
+}
+
 .container:hover {
     backdrop-filter: none;
 }
 
-/* Change font color of Audio and Spectrogram options */
 input[type='radio'] + label {
     color: #0ff;
     font-size: 14px;
