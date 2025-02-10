@@ -9,35 +9,38 @@
 <body>
     <div class="container">
         <h2>Prediction Result</h2>
-        <p>The predicted genre is: <strong>{{ prediction }}</strong></p>
 
-        <!-- Display Spectrogram Image -->
-        <h3>Spectrogram:</h3>
-        <img src="{{ url_for('display_spectrogram', filename=spectrogram_image) }}"
-             alt="Spectrogram" style="width: 250px; height: auto; border-radius: 10px;">
-
-        <!-- Audio Player -->
-        <h3>Listen to the Audio:</h3>
-        <audio controls>
-            <source src="{{ url_for('get_audio', filename=audio_file) }}" type="audio/wav">
-            Your browser does not support the audio element.
-        </audio>
-
-        {% if famous_songs %}
-            <h3>Famous Songs in {{ prediction }} Genre:</h3>
-            <pre>{{ famous_songs }}</pre>
+        {% if "not belong" in prediction %}
+            <p style="color: red; font-weight: bold;">{{ prediction }}</p>
+        {% else %}
+            <p>The predicted genre is: <strong>{{ prediction }}</strong></p>
         {% endif %}
 
-        {% if download_spectrogram %}
-            <a href="{{ url_for('download_spectrogram', filename=spectrogram_image) }}" download>
-                <button>Download Spectrogram</button>
-            </a>
+        <!-- Display Spectrogram if prediction is successful -->
+        {% if spectrogram_image %}
+            <h3>Spectrogram:</h3>
+            <img src="{{ url_for('display_spectrogram', filename=spectrogram_image) }}" alt="Spectrogram" style="width: 250px; height: auto; border-radius: 10px;">
         {% endif %}
 
+        <!-- Provide download option for Spectrogram if audio file is uploaded -->
+        {% if audio_file %}
+            <h3>Listen to the Audio:</h3>
+            <audio controls>
+                <source src="{{ url_for('get_audio', filename=audio_file) }}" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+
+            <!-- Download Spectrogram as a Button (Centered) -->
+            <div class="download-container">
+                <a href="{{ url_for('download_spectrogram', filename=spectrogram_image) }}" class="upload-again" download>Download Spectrogram</a>
+            </div>
+        {% endif %}
+
+        <!-- Provide download option for Audio if spectrogram file is uploaded -->
         {% if download_audio %}
-            <a href="{{ url_for('download_audio', filename=audio_file) }}" download>
-                <button>Download Audio</button>
-            </a>
+            <div class="download-container">
+                <a href="{{ url_for('download_audio', filename=audio_file) }}" class="upload-again" download>Download Audio</a>
+            </div>
         {% endif %}
 
         <br><br>
